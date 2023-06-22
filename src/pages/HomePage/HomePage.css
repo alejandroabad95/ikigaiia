@@ -1,0 +1,107 @@
+/* Index */
+
+.index {
+    font-family: 'Jim Nightshade';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 78px;
+    /* identical to box height */
+
+    background: conic-gradient(from 2.32deg at 72.79% 64.06%, #FF0000 0deg, #F5F5F5 158.57deg, #FF0000 360deg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #000000;
+    text-decoration: none;
+
+}
+
+/* Ball */
+
+.ball {
+    border-radius: 50%;
+    height: 280px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Questions */
+
+.question {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 46px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: black;
+    -webkit-text-stroke: 1px #FFFFFF;
+
+}
+
+/* Form */
+
+.custom-form {
+    box-sizing: border-box;
+    position: relative;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    background: rgba(217, 217, 217, 0.3);
+    border: 1px solid #000000;
+    border-radius: 7px;
+}
+
+
+/* Sentence */
+
+.mainTitle {
+
+
+    font-family: 'JetBrains Mono';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 38px;
+    line-height: 53px;
+    color: white;
+
+    -webkit-text-stroke: 1px black;
+    text-decoration: none;
+
+}
+
+
+/* Button */
+
+.btnIkigai {
+
+    background: #000000;
+    filter: blur(1px);
+    border-radius: 35px;
+
+
+
+
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 53px;
+    /* identical to box height */
+
+    color: rgba(255, 255, 255, 0.92);
+
+    backdrop-filter: blur(2px);
+
+
+}
