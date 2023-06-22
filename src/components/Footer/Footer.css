@@ -1,0 +1,12 @@
+.containerFooter{
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+.titleFooter {
+    font-size: 25px;
+    color: white;
+    
+}

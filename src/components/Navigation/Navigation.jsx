@@ -7,8 +7,8 @@ const Navigation = () => {
 
     return (
         <div className='containerNav'>
-            <a href="#" className='index1'>Inicio</a>
-            <a href="#" className='index2'>Instrucciones</a>
+            <a href="/" className='index'>Inicio</a>
+            <a href="#" className='index'>Ayuda</a>
        </div>
     )
 }
