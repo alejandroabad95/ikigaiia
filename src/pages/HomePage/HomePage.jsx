@@ -46,7 +46,7 @@ function HomePage() {
         </Row>
 
        
-        <Row className='d-flex align-items-center mt-3 mb-3'>
+        <Row className='d-flex align-items-center mt-5 mt-md-0 mb-5 mb-md-0'>
           
           <Col className='d-flex justify-content-sm-end justify-content-center'>
             
@@ -81,8 +81,8 @@ function HomePage() {
           </Col>
         </Row>
        
-        <Row>
-          <Col className='d-flex justify-content-center mb-5 mb-md-3'>
+        <Row className='d-flex align-items-center mb-3'>
+          <Col className='d-flex justify-content-center mb-1 mb-md-1'>
             <div className='ball' style={{  background: '#06D6A0'}}>
               <h2 className='question'>Te pueden pagar</h2>
               <form action="" method="post" className=''>
