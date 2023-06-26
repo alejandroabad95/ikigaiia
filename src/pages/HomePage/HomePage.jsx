@@ -1,5 +1,5 @@
 import { Container, Row, Col } from 'react-bootstrap';
-
+import Ball from '../../components/Ball/Ball';
 
 import "./HomePage.css"
 
@@ -18,13 +18,25 @@ function HomePage() {
 
   const handleChange = (e, formName) => {
     setFormValues({ ...formValues, [formName]: e.target.value });
-    console.log(formValues)
+   
   };
 
   const navigate = useNavigate()
 
+  
   const handleIkigaiClick = () => {
-    navigate('/ikigai-1');
+     console.log(formValues.form1)
+    if (
+      formValues.form1 !== '' &&
+      formValues.form2 !== '' &&
+      formValues.form3 !== '' &&
+      formValues.form4 !== ''
+    ) {
+      navigate('/ikigai-1', { state: { formValues } });
+    }
+    else {
+      alert('Rellena todos los formularios antes de enviar')
+    }
    
   }
 
@@ -34,14 +46,15 @@ function HomePage() {
        
         <Row> 
           <Col className=' d-flex justify-content-center'> 
-            <div className='ball' style={{ background: '#EF476F'}}>
-              <h2 className='question'>Te encanta hacer</h2>
-              <form action="" method="post" className=''>
-                <input type="text" className='custom-form mt-5'
-                  onChange={(e) => handleChange(e, 'form1')}
-                />
-              </form>
-            </div>
+            <Ball
+              background = "#EF476F"
+              width = "280px"
+              height = "280px"
+              question = 'Te encanta hacer'
+              showForm = {true}
+              handleChange = {handleChange}
+              formName = 'form1'
+            />
           </Col>
         </Row>
 
@@ -49,15 +62,17 @@ function HomePage() {
         <Row className='d-flex align-items-center mt-5 mt-md-0 mb-5 mb-md-0'>
           
           <Col className='d-flex justify-content-sm-end justify-content-center'>
-            
-            <div className='ball' style={{ background: '#FFD166' }}>
-              <h2 className='question'>Eres bueno en</h2>
-              <form action="" method="post" className=''>
-                <input type="text" className='custom-form mt-5'
-                  onChange={(e) => handleChange(e, 'form2')}
-                />
-              </form>
-            </div>
+
+            <Ball
+              background = "#FFD166"
+              width = "280px"
+              height = "280px"
+              question = 'Eres bueno en'
+              showForm = {true}
+              handleChange = {handleChange}
+              formName = 'form2'
+            />
+
           </Col>
 
           <Col className='d-flex align-items-center justify-content-center text-center'>
@@ -69,28 +84,30 @@ function HomePage() {
 
           <Col className='d-flex justify-content-sm-start justify-content-center'>
 
-            <div className='ball ' style={{ background: '#26547C'}}>
-              <h2 className='question'>El mundo lo necesita</h2>
-              <form action="" method="post" className=''>
-                <input type="text" className='custom-form mt-5'
-                  onChange={(e) => handleChange(e, 'form3')}
-                />
-              </form>
-            </div>
-
+            <Ball
+              background = "#26547C"
+              width = "280px"
+              height = "280px"
+              question = 'El mundo necesita'
+              showForm = {true}
+              handleChange = {handleChange}
+              formName = 'form3'
+            />
+            
           </Col>
         </Row>
        
         <Row className='d-flex align-items-center mb-3'>
           <Col className='d-flex justify-content-center mb-1 mb-md-1'>
-            <div className='ball' style={{  background: '#06D6A0'}}>
-              <h2 className='question'>Te pueden pagar</h2>
-              <form action="" method="post" className=''>
-                <input type="text" className='custom-form mt-5'
-                  onChange={(e) => handleChange(e, 'form4')}
-                />
-              </form>
-            </div>
+            <Ball
+              background = "#06D6A0"
+              width = "280px"
+              height = "280px"
+              question = 'Te pueden  pagar por'
+              showForm = {true}
+              handleChange = {handleChange}
+              formName = 'form4'
+            />
           </Col>
         </Row>
         </Container>
