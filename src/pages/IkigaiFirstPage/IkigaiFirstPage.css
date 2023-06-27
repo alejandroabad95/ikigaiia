@@ -15,17 +15,48 @@
 
 }
 
+.secondTitle {
+    color: #FFF;
+    text-align: center;
+    font-size: 35px;
+    font-family: 'JetBrains Mono';
+    font-style: italic;
+    font-weight: 100;
+    -webkit-text-stroke: 1px black;
+    text-decoration: none;
+    position:relative;
+    z-index: 1;
+  
+}
+
+.question {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 46px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: black;
+    -webkit-text-stroke: 1px #FFFFFF;
+
+}
+
+
+
+
 
 /* Button */
 
 .btnIkigai {
 
+    background-color: rgba(0, 0, 0, 0.5);
+    
     background: #000000;
+
     filter: blur(1px);
     border-radius: 35px;
-
-
-
 
     font-family: 'JetBrains Mono';
     font-style: normal;
@@ -40,5 +71,8 @@
 
 
 }
+
+
+
 
 

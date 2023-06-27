@@ -3,11 +3,11 @@ import './Ball.css'
 
 
 
-const Ball = ({background,width,height,question,showForm,handleChange,formName}) => {
+const Ball = ({background,width,height,mixBlendMode,question,showForm,handleChange,formName}) => {
 
     return(
     
-        <div className='ball' style={{background,width,height}}>
+        <div className='ball' style={{background,width,height,mixBlendMode}}>
             <h2 className='question'>{question}</h2>
             { showForm && 
             (<form>
