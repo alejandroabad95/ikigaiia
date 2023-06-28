@@ -29,19 +29,30 @@
   
 }
 
-.question {
-    font-family: 'JetBrains Mono';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 35px;
-    line-height: 46px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: black;
-    -webkit-text-stroke: 1px #FFFFFF;
+.promptTitle {
+    color: rgba(255, 255, 255, 0.92);
+        text-align: center;
+        text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        font-size: 45px;
+        font-family: 'JetBrains Mono';
+        font-style: italic;
+        font-weight: 800;
+    -webkit-text-stroke: 1px black;
+        
 
 }
+
+.prompt {
+color: #000;
+    text-align: center;
+    text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-size: 36px;
+    font-family: 'JetBrains Mono';
+    font-weight: 800;
+    -webkit-text-stroke: 1px white;
+    text-decoration: none;
+}
+
 
 
 
