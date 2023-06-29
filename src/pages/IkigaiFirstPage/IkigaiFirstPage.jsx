@@ -4,52 +4,90 @@ import Ball from '../../components/Ball/Ball';
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import config from '../../config'
+
 
 import React from 'react';
 
 function IkigaiFirstPage() {
   
-  const handleIkigaiClick = () => {
-  }
+
+  const navigate = useNavigate();
+
   const location = useLocation();
+
   const formValues = location.state?.formValues || {};
 
 
   //useState for openAI
-  const [passion, setPassion] = useState('');
-  const [mission, setMission] = useState('');
-  const [profession, setProfession] = useState('');
-  const [vocation, setVocation] = useState('');
+  const [iaValues, setIaValues] = useState({
+
+    passion: '',
+    mission: '',
+    profession: '',
+    vocation: '',
+    ikigai: '',
+
+  }
+
+  )
+
+  // const [passion, setPassion] = useState('');
+  // const [mission, setMission] = useState('');
+  // const [profession, setProfession] = useState('');
+  // const [vocation, setVocation] = useState('');
+  // const [ikigai, setIkigai] = useState('');
+  
   
   useEffect(() => {
     const fetchOpenAIResponses = async () => {
       try {
-        // Obtener respuesta para la pasión
+        // Passion Response
         const passionResponse = await getOpenAIResponse(
           `¿Cuál podría ser mi pasión si me encanta ${formValues.form1} y soy bueno ${formValues.form2}?`
         );
-        setPassion(passionResponse);
-        // Obtener respuesta para la misión
+
+        setIaValues({ ...iaValues, passion: passionResponse });
+
+        // Mission Response
         const missionResponse = await getOpenAIResponse(
           `¿Cuál podría ser mi misión si me encanta ${formValues.form1} y el mundo necesita ${formValues.form3}?`
         );
-        setMission(missionResponse);
 
-        // Obtener respuesta para la profesión
+        setIaValues({ ...iaValues, mission: missionResponse });
+
+        // Profession Response
         const professionResponse = await getOpenAIResponse(
           `¿Cuál podría ser mi profesión si soy bueno ${formValues.form2} y me pueden pagar por ${formValues.form4}?`
         );
-        setProfession(professionResponse);
 
-        // Obtener respuesta para la vocación
+        setIaValues({ ...iaValues, profession: professionResponse });
+
+        // Vocation Response
         const vocationResponse = await getOpenAIResponse(
           `¿Cuál podría ser mi vocación si me puden pagar por ${formValues.form4} y el mundo necesita ${formValues.form3}?`
         );
-        setVocation(vocationResponse);
+        
+        setIaValues({ ...iaValues, vocation: vocationResponse });
+
+        // Ikigai Response
+        const ikigaiResponse = await getOpenAIResponse(
+          `¿Cuál podría ser mi Ikigai si me encanta ${formValues.form1}, soy bueno ${formValues.form2}, el mundo necesita ${formValues.form3} y me pueden pagar por ${formValues.form4}?`
+        );
+        setIaValues({ ...iaValues, ikigai: ikigaiResponse });
+
+
       } catch (error) {
         console.error('Error calling OpenAI API:', error);
-        // Manejar el error de manera apropiada
+        setIaValues({
+          ...iaValues,
+          passion: 'La IA no funciona, dale a inicio e inténtalo de nuevo',
+          mission: 'La IA no funciona, dale a inicio e inténtalo de nuevo',
+          profession: 'La IA no funciona, dale a inicio e inténtalo de nuevo',
+          vocation: 'La IA no funciona, dale a inicio e inténtalo de nuevo',
+          ikigai: 'La IA no funciona, dale a inicio e inténtalo de nuevo',
+        });
       }
     };
 
@@ -72,7 +110,13 @@ function IkigaiFirstPage() {
     const data = await response.json();
     return data.choices[0].text.trim();
   }
-    ;
+  
+
+  const handleIkigaiClick = () => {
+
+    navigate('/ikigai-2', { state: { iaValues } });
+
+  }
 
 
   return (
@@ -85,7 +129,7 @@ function IkigaiFirstPage() {
       
         <Col>
           <h1 className='promptTitle'>Tu pasión podría ser:</h1>
-          <p className='prompt'>{passion}</p>
+          <p className='prompt'>{iaValues.passion}</p>
         </Col>
 
         <Col style={{ position: 'relative', top: '250px', left: '200px' }}>
@@ -110,7 +154,7 @@ function IkigaiFirstPage() {
       
         <Col className=''>
           <h1 className='promptTitle'>Tu misión podría ser:</h1>
-          <p className='prompt'>{mission}</p>
+          <p className='prompt'>{iaValues.mission}</p>
         </Col>
 
      
@@ -150,7 +194,7 @@ function IkigaiFirstPage() {
       <Row className=''>
         <Col>
           <h1 className='promptTitle'>Tu profesión podría ser:</h1>
-          <p className='prompt'>{profession}</p>
+          <p className='prompt'>{iaValues.profession}</p>
         </Col>
         <Col style={{ position: 'relative', left: '200px', top: '50px' }}><h2 className='secondTitle'>Profesión</h2></Col>
 
@@ -168,7 +212,7 @@ function IkigaiFirstPage() {
         <Col style={{ position: 'relative', top: '50px', right: '210px' }}><h2 className='secondTitle'>Vocación</h2></Col>
         <Col>
           <h1 className='promptTitle'>Tu vocación podría ser:</h1>
-          <p className="prompt">{vocation}</p>
+          <p className="prompt">{iaValues.vocation}</p>
       
         </Col>
       
@@ -177,9 +221,9 @@ function IkigaiFirstPage() {
 
       <Row className=''>
         <Col className='d-flex justify-content-center'>
-          <button className='btnIkigai' onClick={handleIkigaiClick} style={{ position: 'relative', bottom: '400px' }} >IKIGAI</button>
+          <button className='btnIkigai' onClick={handleIkigaiClick} style={{ position: 'relative', bottom: '510px' }} >IKIGAI</button>
         </Col>
-        <div className='' style={{ position: 'relative', bottom: '30px' }}>
+        <div className='' style={{ position: 'relative', bottom: '70px' }}>
           <h1 className='mainTitle d-flex justify-content-center'>Pulsa de nuevo y descubre tu Ikigai</h1>
         </div>
       </Row>

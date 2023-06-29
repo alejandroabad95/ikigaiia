@@ -25,7 +25,7 @@ function HomePage() {
 
   
   const handleIkigaiClick = () => {
-     console.log(formValues.form1)
+     
     if (
       formValues.form1 !== '' &&
       formValues.form2 !== '' &&
